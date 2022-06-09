@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="https://giaiphapvieclam.com/wp-content/uploads/2019/12/c%C3%A1ch-t%C3%ADnh-thu%E1%BA%BF-thu-nh%E1%BA%ADp-c%C3%A1-nh%C3%A2n-theo-qu%C3%BD.png">
+<script>
+    let income = parseInt(prompt("Nhập thu nhập cá nhân (triệu)"))
+    if (income < 60){
+        tax = (income * 5) / 100
+        alert("số thuế: " + tax + " triệu đồng")
+    }else if (income >= 60 && income < 120){
+        tax = (income * 10) / 100
+        alert("số thuế: " + tax + " triệu đồng")
+    }else if (income >= 120 && income < 216){
+        tax = (income * 15) / 100
+        alert("số thuế: " + tax + " triệu đồng")
+    }else if (income >= 216 && income < 384){
+        tax = (income * 20) / 100
+        alert("số thuế: " + tax + " triệu đồng")
+    }else if (income >= 384 && income < 624){
+        tax = (income * 25) / 100
+        alert("số thuế: " + tax + " triệu đồng")
+    }else if (income >= 624 && income < 960){
+        tax = (income * 30) / 100
+        alert("số thuế: " + tax + " triệu đồng")
+    }else {
+        tax = (income * 35) / 100
+        alert("số thuế: " + tax + " triệu đồng")
+    }
+
+
+</script>
+
+</body>
+</html>

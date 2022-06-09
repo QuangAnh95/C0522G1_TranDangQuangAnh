@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--giá điện sinh hoạt-->
+<!--bậc 1: o-50 kwh - 1678 đ/kwh-->
+<!-- bậc 2: 50-300 kwh - 2536 đ/kwh-->
+<!--bậc 3: 300- 400 kwh - 2835 đ/kmh-->
+<!--bậc 4: > 400 kwh - 2927 đ?kmh-->
+<!---->
+<!---->
+<!---->
+<!---->
+<script>
+    let electric = parseInt(prompt(" Nhập số điện sử dụng (kWh)"))
+    if (electric > 0 && electric < 50){
+       money = electric * 1678
+       alert(money + " vnd ")
+    }else if (electric >= 50 && electric < 300){
+        money = electric * 2536
+        alert(money + " vnd ")
+    }else if (electric >= 300 && electric < 400){
+        money =  electric * 2835
+        alert(money + " vnd ")
+    }else if (electric >= 400){
+        money = electric * 2927
+        alert(money + " vnd ")
+    }else {
+        alert(" Xin nhập lại số")
+    }
+</script>
+
+</body>
+</html>

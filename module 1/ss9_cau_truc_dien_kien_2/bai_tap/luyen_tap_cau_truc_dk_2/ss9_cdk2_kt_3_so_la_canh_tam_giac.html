@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbera = parseInt(prompt(" Nhập giá trị a"))
+    let numberb = parseInt(prompt(" Nhập giá trị b"))
+    let numberc = parseInt(prompt(" Nhập giá trị c"))
+    let a1 = numberb + numberc
+    let b1 = numbera + numberc
+    let c1 = numbera + numberb
+    if (numbera > 0 && numberb > 0 && numberc >0){
+        if ( a1 > numbera){
+            if (b1> numberb){
+                if (c1> numberc){
+                    alert( numbera + " & "+ numberb + " & "+ numberc + " là cạnh tam giác ")
+                }else {
+                    alert( numbera + " & "+ numberb + " & "+ numberc + " không là cạnh tam giác")
+                }
+            }else {
+                alert( numbera + " & "+ numberb + " & "+ numberc + " không là cạnh tam giác")
+            }
+        }else {
+            alert( numbera + " & "+ numberb + " & "+ numberc + " không là cạnh tam giác")
+        }
+
+    }else {
+        alert( numbera + " & "+ numberb + " & "+ numberc + " không là cạnh tam giác")
+    }
+
+</script>
+
+</body>
+</html>
