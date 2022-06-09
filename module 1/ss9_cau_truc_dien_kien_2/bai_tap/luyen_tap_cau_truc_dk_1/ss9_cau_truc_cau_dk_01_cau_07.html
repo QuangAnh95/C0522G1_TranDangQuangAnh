@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--thong tin cuoc phi 1 ho gia dinh-->
+<!--phi thue bao bat buoc là 25k-->
+<!--600đ cho 50p goi dau tien-->
+<!--400đ cho moi phut goi cua 150p tiep theo-->
+<!--200đ cho bat ky moi phut nao sau 200 phút dau tien-->
+
+</body>
+<script>
+    let soPhutSuDung = parseInt(prompt("thời gian gọi (phút)"))
+    if (soPhutSuDung >= 50 && soPhutSuDung < 150){
+        money1 = (soPhutSuDung - 50)*400 + ( 50*600 ) + 25000
+        document.write("phí cước:" + money1 + " vnd ");
+    }
+    else if (soPhutSuDung > 200 ){
+        money2 = (soPhutSuDung - 200 )*200 + (150*400) + (50*600) + 25000
+        document.write("phí cước:" + money2 + " vnd ");
+    }else {
+        money3 = soPhutSuDung * 600 + 25000
+        document.write("phí cước:" + money3 + " vnd ");
+    }
+</script>
+</html>

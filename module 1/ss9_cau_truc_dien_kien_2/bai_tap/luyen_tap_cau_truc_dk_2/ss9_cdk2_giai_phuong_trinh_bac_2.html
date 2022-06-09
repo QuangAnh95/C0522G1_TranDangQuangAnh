@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--phuong trinh bac 2 có dạng-->
+<!--a*x^2 + bx + c = 0 -->
+<script>
+    let numbera = parseInt(prompt("Nhập số a"));
+    let numberb = parseInt(prompt(" Nhập số b"));
+    let numberc = parseInt(prompt(" Nhập số c"));
+    let numberdeltar = (numberb * numberb) - 4 * numbera * numberc;
+    let squareRoot = Math.sqrt(numberdeltar);
+    if (numberdeltar > 0){
+        x1 = (-numberb + squareRoot) / (2*numbera);
+        x2 =  (-numberb - squareRoot) / (2*numbera);
+        document.write(x1 + " và " + x2 + " là nghiệm");
+    }else if (numberdeltar === 0){
+        x3 = (-numberb) / (2 * numbera);
+        document.write( x3 + " là nghiệm ");
+    }else {
+        document.write("Phương trình vô nghiệm");
+    }
+</script>
+
+</body>
+</html>

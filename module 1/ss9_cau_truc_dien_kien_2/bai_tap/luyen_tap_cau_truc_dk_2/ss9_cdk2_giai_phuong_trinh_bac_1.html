@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--phương trình bậc 1 có dạng-->
+<!--a*x + b =0-->
+<script>
+    let numbera = parseInt(prompt("Nhập số a"));
+    let numberb = parseInt(prompt(" Nhập số b"));
+    let bienx = -numberb / numbera;
+    if (numbera === 0 ){
+        if (numberb === 0){
+            document.write("Phương trình có vô số nghiệm");
+        }else {
+            document.write("Phương trình vô nghiệm");
+        }
+    }else if (numbera !== 0 ){
+        document.write(bienx + " là nghiệm ");
+    }
+
+</script>
+
+</body>
+</html>

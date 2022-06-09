@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--công ty A có 3 mức tính hoa hồng-->
+<!--bán từ 100-300tr=>3%-->
+<!--bán từ hơn 300-500=> 4%-->
+<!--bán hơn 500tr=> 6%-->
+
+</body>
+<script>
+    let doanhThu = parseInt(prompt("Nhập doanh số (VND)"))
+
+    if (doanhThu>100000000 && doanhThu <= 300000000 ){
+        hoahong1 = (doanhThu * 3 )/100
+        alert(hoahong1 + " vnd là hoa hồng của bạn")
+    }
+    else if (doanhThu > 300000000 && doanhThu <= 500000000){
+        hoahong2 = (doanhThu * 4 )/100
+         alert(hoahong2 + " vnd là hoa hồng của bạn")
+    }
+    else if (doanhThu >500000000){
+        hoahong3 = (doanhThu * 6 )/100
+         alert(hoahong3 + "vnd là hoa hồng của bạn")
+    }else {
+        document.write("bạn không có hoa hồng")
+    }
+
+
+</script>
+</html>
