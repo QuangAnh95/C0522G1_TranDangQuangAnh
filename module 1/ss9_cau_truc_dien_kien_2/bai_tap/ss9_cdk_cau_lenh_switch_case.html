@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>KIỂM TRA MỘT THÁNG CÓ BAO NHIÊU NGÀY??</h1>
+ <input type="number"  max="12" MIN="1" placeholder="Nhập tháng" style="width: 10%" id="month"/>
+<button onclick=" checkmonth() " >kiểm tra</button>
+<p id="result">Kết quả</p>
+<script>
+    function checkmonth() {
+        let month = parseInt(document.getElementById("month").value);
+        if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month ===10 || month === 12){
+            document.getElementById("result").innerHTML = "Tháng "+ month + " có 31 ngày";
+        }else if (month === 4 || month === 6 || month=== 9 || month === 11){
+            document.getElementById("result").innerHTML = " Tháng " + month + " có 30 ngày";
+        }else if (month === 2){
+            document.getElementById("result").innerHTML = "Tháng " + month + " có 28 hoặc 29 ngày";
+        }else {
+            document.getElementById("result").innerHTML = "Vui lòng nhập lại đúng số";
+        }
+
+    }
+</script>
+</body>
+</html>

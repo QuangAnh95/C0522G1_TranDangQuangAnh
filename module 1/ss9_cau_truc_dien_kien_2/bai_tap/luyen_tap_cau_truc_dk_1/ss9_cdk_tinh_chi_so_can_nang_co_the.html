@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let weighr = parseInt(prompt(" Nhập cân nặng của bạn vào đây. (kg)"));
+    let height = parseInt(prompt(" Nhập chiều cao của bạn vào đây. (cm)"));
+    let bmi = weighr / (height*height);
+    if (18.5 <= bmi && bmi < 25.0){
+        alert(" Normal");
+    }else if (25 <= bmi && bmi < 30){
+        alert(" Overweight");
+    }else if (30 <= bmi){
+        alert(" Obese");
+    }else {
+        alert(" Underweight");
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
