@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let nbx = 20
+    let number1 = 0
+    let number2 = 1
+    let number3;
+    let numberF = number1 + "<br>" + "," + number2 + "<br>"
+    for (i = 0 ; i < ( nbx - 2 )  ; i++){
+        number3 = number1 + number2
+        numberF += "," + number3 + "<br>"
+        number1 = number2
+        number2 = number3
+        if (number3 % 5 === 0){
+            document.write(number3 + " chia hết cho 5 ")
+            break
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>
