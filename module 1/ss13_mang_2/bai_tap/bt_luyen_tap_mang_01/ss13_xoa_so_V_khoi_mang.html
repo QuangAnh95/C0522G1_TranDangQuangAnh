@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = [5,2,8,12,10,7,3,15,18,20]
+    let numberFind = parseInt(prompt("enter the number"))
+    let index = -1
+    for (i=0 ; i<number.length; i++){
+        if (numberFind === number[i]){
+            index = i
+        }
+    } document.write(index+ 1 + " là số thứ tự của " + numberFind)
+     document.write( "<br>")
+    if (index !== -1){
+        for (i = index; i<number.length-1; i++){
+            number[i] = number [i+1]
+        }
+        number[number.length-1]=0
+        document.write(number)
+    }else {
+        document.write("không tìm thấy")
+    }
+
+
+</script>
+
+</body>
+</html>
