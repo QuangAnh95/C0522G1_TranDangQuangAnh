@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numA = parseInt(prompt("Nhập số thứ 1"))
+    let numB = parseInt(prompt("Nhập số thứ 2"))
+    let numC = parseInt(prompt("Nhập số thứ 3"))
+    function compare(a,b,c) {
+       if (a < b && a < c ){
+           alert( a + "  is min")
+       }else if ( c < a && c < b){
+           alert( c + "  is min")
+       }else {
+           alert(b + "  is min")
+       }
+    } compare(numA,numB,numC)
+
+</script>
+
+</body>
+</html>

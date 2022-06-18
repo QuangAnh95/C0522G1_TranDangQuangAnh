@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>HÀM </h1>
+<p>
+    <label>number</label>
+    <input type="number" placeholder="nhập 1 số " id="argument"
+    oninput="inputnumber(this.value)">
+</p>
+<p>result<span id="outputnumber"></span> </p>
+<script>
+    function inputnumber(valnum) {
+        valnum = parseFloat(valnum)
+        document.getElementById("outputnumber").innerHTML=" "+  (valnum + 1)
+
+    }
+</script>
+
+</body>
+</html>

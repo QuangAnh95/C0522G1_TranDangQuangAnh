@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let importNum = prompt("nhập vào kí tự")
+    function checkNum(a) {
+        let textA = false
+        textA = a % a === 0 || a * 0 ===0
+        if (textA === false){
+            alert(a + "  không là kí tự số")
+        }else {
+            alert(a + " là kí tự số")
+        }
+
+    } checkNum(importNum)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="out"></p>
+<script>
+    let number1 = parseInt(prompt("enter the number"));
+    let number2 = parseInt(prompt("enter the number"));
+    function convert(number1, number2 ) {
+        let temp;
+        temp = number1;
+        number1 = number2;
+        number2 = temp;
+        return number1 + " , " + number2;
+    }
+    document.getElementById("out").innerHTML= convert(number1,number2);
+</script>
+</body>
+</html>

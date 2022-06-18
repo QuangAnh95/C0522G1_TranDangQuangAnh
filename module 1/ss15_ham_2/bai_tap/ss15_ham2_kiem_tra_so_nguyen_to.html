@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number1 = parseInt(prompt("Nhập vào số muốn kiểm tra"))
+    function primeNumber(number) {
+        let count = 0
+        if (number1 === 0 ){
+            alert(number1 + "  not prime number")
+        }
+        else {
+            for (i = 1 ; i <= number1; i++){
+                if (number1 % i ===0 ){
+                    count +=1
+                }
+            }
+        }
+        if (count=== 2){
+            alert(number1 + "   prime number")
+        }else {
+            alert(number1 + "   not prime number")
+        }
+
+    }alert(primeNumber(number1))
+
+</script>
+
+</body>
+</html>

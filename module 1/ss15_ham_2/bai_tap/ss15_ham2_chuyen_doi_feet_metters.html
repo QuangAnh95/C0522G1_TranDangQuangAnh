@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <label> FEET</label>
+    <input id="inputfeed" type="number" placeholder="nhập số feed muốn đỏi"
+    oninput="changefeed(this.value)">
+</p>
+<p>metters:<span id="outputmetter"></span> </p>
+<p>
+    <label>METTERS</label>
+    <input id="inputmetters" type="number" placeholder="nhập số metter muốn đổi"
+    oninput="changemetter(this.value)">
+</p>
+<p>feed<span id="outputfeed"></span></p>
+<script>
+ function changefeed(valnum) {
+     valnum = parseFloat(valnum);
+     document.getElementById("outputmetter").innerHTML = (0.305* valnum) ;
+
+ }
+
+ function changemetter(valnum2) {
+     valnum2 = parseFloat(valnum2)
+     document.getElementById("outputfeed").innerHTML = (3.279*valnum2)
+
+ }
+
+</script>
+
+</body>
+</html>
