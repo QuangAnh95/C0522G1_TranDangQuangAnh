@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="mycanvas" style="height: 300px; width: 600px ; border: 1px solid #888888"></canvas>
+<script>
+    class Rectangle{
+        constructor(longs,width) {
+            this.longs = longs
+            this.width = width
+
+        }
+        getperimeter(){
+            return (this.longs+this.width)*2
+        }
+        getarea(){
+            return this.longs*this.width
+        }
+        getlongs(){
+            return this.longs
+        }
+        getwidth(){
+            return this.width
+        }
+        setlongs(longs){
+            this.longs = longs
+        }
+        setwidth(width){
+            this.width = width
+        }
+        }
+        let rectangle1 = new Rectangle(500,400)
+
+        let longs = rectangle1.getlongs()
+        let width = rectangle1.getwidth()
+        document.write("<br>")
+        document.write("chu vi    " + rectangle1.getperimeter())
+        document.write("<br>")
+        document.write("diện tích   " + rectangle1.getarea())
+
+
+
+
+
+
+</script>
+</body>
+</html>

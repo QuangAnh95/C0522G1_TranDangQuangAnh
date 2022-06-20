@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inNum = parseInt(prompt("Nhập vào só lượng phần tử"))
+    let varr = new Array (inNum)
+    for (let i = 0 ; i <= inNum ; i++)
+        varr[i] = parseInt(prompt("Nhập vào phần tử   " + i))
+
+    function check() {
+        count = 1
+       for (i = 0 ; i <= varr.length; i++ ){
+           if (varr[i]=== varr[varr.length - i]){
+               count ++
+           } document.write(varr[i] + "xuất hiện"+ count + "lần" + "<br>")
+       }
+
+    } check(varr)
+
+</script>
+
+</body>
+</html>

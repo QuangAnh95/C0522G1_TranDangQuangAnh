@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inNumber = parseInt(prompt("Nhập vào số nguyên"))
+    function check() {
+        for (let i = 0 ; i <= inNumber ; i++){
+            let count = 0
+            for (let j = 1; j<= inNumber; j++){
+
+                if (i % j === 0){
+                    count+=1
+                }
+            }if (count > 2 ){
+                document.write(i + "  không phải là số nguyên tố " + "<br>")
+            }
+        }
+    } check(inNumber)
+</script>
+
+</body>
+</html>
