@@ -6,35 +6,38 @@
 </head>
 <body>
 <script>
-    let MyDate = function (day,month,year) {
-        this.day=day
-        this.month=month
-        this.year=year
-        this.getday = function () {
-            return this.day;
-        }
-        this.getMonth= function () {
-            return  this.month
-        }
-        this.getYear = function () {
-            return this.year
-        }
-        this.setday= function (day) {
-            this.day = day;
-        }
-        this.setMonth= function (month) {
-            this.month = month;
-        }
-        this.setYear= function (year) {
-            this.year = year;
-        }
+     class Date{
+         constructor(day,month,year) {
+             this.day = day
+             this.month = month
+             this.year = year
+         }
+         setNewday(Newday){
+             this.day= Newday;
+         }
+         setNewmonth(Newmonth){
+             this.month= Newmonth
+         }
+         setNewyear(Newyear){
+             this.year = Newyear
+         }
+         getDay(){
+             return this.day
+         }
+         getMonth(){
+             return  this.month
+         }
+         getYear(){
+             return this.year
+         }
 
-    };
-    let date= new MyDate(2,2,2007);
-    let day = date.getday();
-    let month = date.getMonth();
-    let year = date.getYear();
-    alert(day + "/" + month + "/" + year)
+     }
+     let Date1 = new Date()
+    Date1.setNewday(parseInt(prompt("Nhập ngày")))
+    Date1.setNewmonth(parseInt(prompt("Nhập tháng")))
+    Date1.setNewyear(parseInt(prompt("Nhập năm")))
+    alert("Ngày  "+ Date1.getDay()+ " tháng   " + Date1.getMonth() + "Năm   " + Date1.getYear())
+
 </script>
 
 </body>
