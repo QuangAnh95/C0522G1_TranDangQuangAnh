@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let row = parseInt(prompt("Nhập số dòng"));
+    let col;
+    let arrs2 = [];
+    for (let i = 0; i < row; i ++){
+       col = parseInt(prompt("Nhập số cột"));
+        arrs2[i] = [];
+        for (let j = 0; j < col; j++){
+            arrs2[i][j] = Math.floor((Math.random()*100)-50);
+        }
+    }
+
+    document.write(arrs2);
+      document.write("<br/>");
+
+
+    function check(arrs3) {
+        let max = arrs3[0][0];
+        let min = arrs3[0][0];
+        for (let i = 0 ; i <= arrs3.length-1 ; i ++){
+            for (let j= 0 ; j<= arrs3[i].length-1 ; j++){
+                if (max < arrs3[i][j]){
+                     max = arrs3[i][j]
+                }
+                if (min > arrs3[i][j]){
+                    min = arrs3[i][j]
+                }
+            }
+        }
+
+        document.write( max + "   là số lớn nhất");
+        document.write("<br/>");
+         document.write(min + "     là số nhỏ nhất");
+
+    }
+
+    check(arrs2);
+
+
+</script>
+
+</body>
+</html>

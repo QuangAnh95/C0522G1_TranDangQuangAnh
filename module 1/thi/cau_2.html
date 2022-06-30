@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numLeght = parseInt(prompt("Nhập vào chỉ số của mảng"))
+    let arr = [numLeght]
+    for (let i = 0; i < numLeght; i++) {
+        arr[i] = parseInt(prompt("Nhập vào phần tử trong mảng" + i))
+    }
+    document.write("mảng sau khi nhập: " + "<br>" + "arr = [" + arr + "]" + "<br>")
+
+    function checkNum(arr1) {
+        let max = arr1[0];
+        let min = arr1[0];
+        let index_max = 0;
+        let index_min = 0;
+        for (let i = 1; i <= arr1.length; i++) {
+            if (arr1[i] > max) {
+                max = arr1 [i];
+                index_max = i
+
+            }
+            if (arr1[i] < min) {
+                min = arr1 [i]
+                index_min = i
+            }
+
+        }
+        document.write("Phần tử lớn nhất là :" + max + "xuất hiện lần đầu ở vị trí : " + index_max + "<br>")
+        document.write("Phần tử lớn nhất là :" + min + "xuất hiện lần đầu ở vị trí : " + index_min + "<br>")
+
+
+    }
+
+    checkNum(arr)
+</script>
+
+</body>
+</html>

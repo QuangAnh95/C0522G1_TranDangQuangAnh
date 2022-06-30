@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = new Array(6)
+    for (let i =0 ; i<6 ; i++){
+        arr[i] = parseInt(prompt("Nhập các phần thử vào mảng" + i))
+    }
+    document.write("số phần tử trong mảng " + "[" + arr + "]")
+    document.write("<br>")
+
+
+
+
+    function check(a) {
+        let divis = [];
+        for (let i = 0; i < a.length; i++){
+            if ( i % 3 === 0 && a[i] % 5 === 0){
+                divis.push(a[i])
+            }
+        }
+        return divis
+
+    }  check(arr)
+
+    let arr2 = check(arr)
+    document.write("các phần tử thỏa điều kiện " + "[" + arr2 + "]")
+    document.write("<br>")
+
+    function average(b) {
+
+        let sum = 0;
+        let avera ;
+        for (let i = 0; i< b.length; i++){
+            sum += b[i]
+        }
+        avera = sum / (b.length)
+        return avera
+
+    } document.write("trung bình cộng của mảng" + average(arr2))
+
+</script>
+
+</body>
+</html>

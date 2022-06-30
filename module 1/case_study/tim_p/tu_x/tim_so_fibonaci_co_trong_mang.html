@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrA = [1,1,2,3];
+    // let sizeA = parseInt(prompt("Nhap vao so phan tu cua mang A: "));
+    // for (let i = 0; i < sizeA; i++) {
+    //     arrA.push(parseInt(prompt("nhap vao phan tu thu " + i)));
+    // }
+    // document.write("arrA = [" + arrA + "]" + "<br>");
+    arrA.sort(function (a, b) {return a - b});
+    document.write(arrA+"<br>");
+    fibonacci(arrA)
+
+    function fibonacci(a) {
+
+        let arrB = [];
+        let seed1 = 0;
+        let seed2 = 1;
+        let seed3;
+        for (let i = 0; i <= a[a.length - 1]; i++) {
+            seed3 = seed1 + seed2;
+            seed1 = seed2;
+            seed2 = seed3;
+            for (let j = 0; j < a.length; j++) {
+                if (seed3 === a[j]) {
+                    arrB.push(a[j]);
+                }
+
+            }
+
+        }
+        document.write(arrB);
+
+    }
+</script>
+
+</body>
+</html>

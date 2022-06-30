@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <label>Nhập số tiền trước thuế </label>
+    <input id="innumber" type="number" placeholder="VND"
+    oninput="calculate(this.value)">
+</p>
+<p>Thuế phải đóng: <span id="outtax"></span></p>
+<p>Thu nhập sau thuế: <span id="outincome"></span></p>
+<script>
+function calculate(valNum) {
+    let tax = " ";
+ if (valNum< 7000000 ){
+     tax = (valNum*5)/100
+ }
+ else if (valNum<15000000){
+     tax = (valNum*10)/100
+ }else {
+     tax = (valNum*20)/100
+ }
+ document.getElementById("outtax").innerHTML = tax
+    document.getElementById("outincome").innerHTML = (valNum - tax)
+
+}
+</script>
+
+</body>
+</html>

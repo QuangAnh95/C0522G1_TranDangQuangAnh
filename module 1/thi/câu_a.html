@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>DANH SÁCH BỆNH NHÂN</h1>
+<p id="display"></p>
+<script>
+    class Person {
+        constructor(name, old, adress, phone) {
+            this._name = name;
+            this._old = old;
+            this._adress = adress;
+            this._phone = phone;
+        }
+        getName() {
+            return this._name;
+        }
+        setName(value) {
+            this._name = value;
+        }
+        getOld() {
+            return this._old;
+        }
+        setOld(value) {
+            this._old = value;
+        }
+        getAdress() {
+            return this._adress;
+        }
+        setAdressr(value) {
+            this._adress = value;
+        }
+        getPhone() {
+            return this._phone;
+        }
+        setPhone(value) {
+            this._phone = value;
+        }
+    }
+    let person1 = new Person("Nguyễn Lê Hoàng Oanh ",20,"Quảng Nam","0923434564");
+    let person2 = new Person("Nguyễn Trần Cảnh ",30,"Quảng Nam","0923434324");
+    let person3 = new Person("Hoàng Thanh Hùng ",15,"Quảng Nam","0923431235");
+     let person4 = new Person("Trần Lệ Quyên ",19,"Quảng Nam","092343748");
+
+    let array = [person1,person2,person3,person4];
+    function display(array) {
+        let sout = "<table border=\"1px\">\n" +
+            "    <tr>\n" +
+            "        <th>Họ và Tên</th>\n" +
+            "        <th>Tuổi</th>\n" +
+            "        <th>Dịa Chỉ</th>\n" +
+            "        <th>Số Điện Thoại/th>\n" +
+            "        <th>Action</th>\n" +
+            "    </tr>";
+        for (let i = 0; i < array.length ; i++) {
+            sout += "<tr>" +
+                "<td>"+array[i].getName() +"</td>" +
+                "<td>"+array[i].getOld() +"</td>" +
+                "<td>"+array[i].getAdress() +"</td>" +
+                "<td>"+array[i].getPhone() +"</td>" +
+                "<td>" +
+                "<button id='update' onclick='edit( "+ i + ")'>Update</button>" +
+                "<button id='delete' onclick='remove( "+ i + ")'>Delete</button>" +
+                "</td>" +
+                "</tr>"
+        }
+        sout += "</table>";
+        document.getElementById("display").innerHTML = sout;
+
+    }
+
+        display(array);
+</script>
+
+</body>
+</html>

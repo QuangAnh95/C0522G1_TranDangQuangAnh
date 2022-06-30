@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numLeght = parseInt(prompt("Nhập vào chỉ số của mảng"))
+    let arr = [numLeght]
+    for (let i = 0; i < numLeght; i++) {
+        arr[i] = parseInt(prompt("Nhập vào phần tử trong mảng" + i))
+    }
+    document.write("mảng sau khi nhập: " + "<br>" + "arr = [" + arr + "]" + "<br>")
+    let checkNum = parseInt(prompt("Nhập vào số nguyên"))
+    document.write(" xét các phần tử trong mảng chia hết cho: " + checkNum + "<br>")
+
+    function divNum(arr1,num) {
+        let last = []
+        let divNum = [arr1.sort()]
+        for (i = 0; i< divNum.length; i++ ){
+            if( divNum[i] === divNum[i+1]){
+                divNum[i] = divNum[i+1]
+            }if (divNum[i] % num ===0){
+                last.push(divNum[i])
+
+            } return last.length
+
+        } document.write( " có " + last.length + "chia hết cho" + num)
+
+    } divNum(arr,checkNum)
+
+
+</script>
+
+</body>
+</html>

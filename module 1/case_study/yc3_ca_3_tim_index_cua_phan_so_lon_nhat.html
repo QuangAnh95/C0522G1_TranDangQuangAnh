@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("Nhập số phần tử có trong mảng"))
+    let numerators = []
+    let denominators = []
+    for (let i = 0 ; i<number ;i++){
+        numerators[i]= parseInt(prompt("Nhập tử số thứ :" + i))
+        denominators[i] = parseInt(prompt("Nhập mẫu số thứ :" +i))
+    }
+    document.write("numerators = " + "[" + numerators + "]")
+    document.write("<br>")
+    document.write("denominators = " + "[" + denominators + "]")
+    function fraction(a,b) {
+        let maxIndex = 0
+        for (i = 1; i < a.length; i++) {
+            if (a[maxIndex] * b[i] < a[i] * b[maxIndex]) {
+                maxIndex = i;
+
+            }
+        }
+        return maxIndex
+
+    }
+    document.write("<br>")
+    document.write("phân số lớn nhất có chỉ số là:" + fraction(numerators,denominators))
+
+</script>
+
+</body>
+</html>

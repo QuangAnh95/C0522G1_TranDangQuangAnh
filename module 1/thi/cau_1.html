@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inNumber = parseInt(prompt("Nhập vào số nguyên"))
+
+    function checkNum(n) {
+        let arr = []
+        if (n % 1 === 0) {
+            if (n > 0) {
+                for (let i = 1; i <= n; i++) {
+                    if (n % i === 0) {
+                        arr.push(i)
+                    }
+                }
+            }
+            else {
+                alert("vui lòng nhập lại số")
+            }
+
+        } else {
+            alert("vui lòng nhập lại số")
+
+        }
+        document.write("ước của   " + n + "  là " + arr)
+
+    }
+
+    checkNum(inNumber)
+</script>
+
+</body>
+</html>

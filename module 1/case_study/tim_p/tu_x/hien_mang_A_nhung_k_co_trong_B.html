@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let A=[7,2,5,3,5,3]
+    let B=[7,2,5,4,6,3,5,3]
+    // function check(a,b) {
+    //     let j = 0
+    //     let c = []
+    //
+    //     if (a.length < b.length){
+    //         for (let i =0 ; i <= b.length; i++ ){
+    //             for (;j <= b.length; j++) {
+    //                 if (a[i] === b[j]){
+    //                     j = j + 1
+    //                     break;
+    //                 }
+    //                 else {
+    //                 c.push(b[j])
+    //                 }
+    //             }
+    //             }
+    //         document.write(c)
+    //             }
+    //         }  check(A,B)
+
+
+function check(a,b) {
+       let c = []
+    for (let i = 0 ; i <b.length;i++){
+        if (a.indexOf(b[i])===-1 && c.indexOf(b[i])=== -1){
+            c.push(b[i])
+        }
+    } c.sort();
+    document.write("phần tử có ở mảng B mà k có ở mảng A là:    " + c)
+
+}check(A,B)
+
+
+
+</script>
+
+</body>
+</html>

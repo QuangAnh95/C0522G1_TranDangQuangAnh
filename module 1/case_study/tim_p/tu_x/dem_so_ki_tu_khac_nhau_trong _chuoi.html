@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check(str) {
+        let arr = [];
+        for (let i=0;i<str.length;i++){
+            if (arr.indexOf(str.charAt(i))===-1){
+                arr.push(str.charAt(i));
+            }
+        }
+        return arr.length
+
+    }
+    let str1 = prompt("Nhập vào xâu kí tự");
+    document.write("có    " + check(str1) + "   kí tự khác nhau   ")
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let row = parseInt(prompt("nhập số dòng"))
+    let col = parseInt(prompt("Nhập số cột"))
+    var arrs2 = [];
+    for (var i = 0; i < row; i++){
+        arrs2[i] = [];
+        for (var j = 0; j < col; j++){
+            arrs2[i][j] = Math.floor((Math.random() * 10) + 1);//random các giá trị từ 0-10
+        }
+    }document.write(arrs2);
+    document.write("<br/>")
+    function total(arrs3) {
+        let sum = 0
+        for (let i= 0 ; i< arrs3.length ; i ++){
+            for (let j = 0 ; j < arrs3[i].length; j++){
+                if (arrs3[i][j] % 2 === 0 ){
+                    sum += arrs3[i][j]
+                }
+            }
+        } document.write("tổng các phần tử chẵn trong mảng vừa nhập:   " +  sum)
+    } total(arrs2)
+
+</script>
+
+</body>
+</html>
