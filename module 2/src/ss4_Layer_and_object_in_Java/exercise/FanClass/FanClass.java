@@ -71,7 +71,7 @@ public class FanClass {
         if (isOn()) {
             System.out.println("Fan is on " + "\n" + "color " + getColor() + "\n" + "speed  " + getSpeed() + "\n" + "radius  " + "\n" + getRadius());
         } else {
-            System.out.println("Fan is off " + "\n" + "color " + getColor() + "\n" + "speed  " + getSpeed() + "\n" + "radius  " + "\n" + getRadius());
+            System.out.println("Fan is off " + "\n" + "color " + getColor() + "\n" + "\n" + "radius  " + "\n" + getRadius());
         }
         return null;
     }
