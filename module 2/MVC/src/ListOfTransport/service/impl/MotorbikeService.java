@@ -1,83 +1,90 @@
 package ListOfTransport.service.impl;
 
-import ListOfTransport.model.Motorcycle;
+import ListOfTransport.model.Car;
+import ListOfTransport.model.Motorbike;
+import ListOfTransport.service.IMotorbikeService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MotorbikeService implements IMotorBikeService {
-    private static final List<Motorbike> listMotorbike = new ArrayList<>();
-    private static final Scanner scanner = new Scanner(System.in);
+public class MotorbikeService<E>implements IMotorbikeService {
 
-    @Override
-    public void add() {
-        System.out.print("Chủ sở hữu: ");
-        String name = scanner.nextLine();
+    private static List<Motorbike> motorbikeList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Nhập biển kiểm soát: ");
-        String seaOfControl = scanner.nextLine();
-
-        System.out.print("Nhập năm sản xuất: ");
-        int yearOfManufacture = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Nhập hãng sản xuất: ");
+    public static Motorbike infoMotorbike(){
+        System.out.println("Nhập biển kiểm soát");
+        int  licensePlates = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập hãng sản xuất");
         String manufacturer = scanner.nextLine();
+        System.out.println("Nhập năm sản xuất");
+        int yearOfManufacture = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập chử sở hữu");
+        String owner = scanner.nextLine();
+        System.out.println("nhập công suất xe");
+        int wattage = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Nhập trọng tải (tấn): ");
-        double wattage = Double.parseDouble(scanner.nextLine());
-
-        Motorbike motorbike = new Motorbike(name, seaOfControl, manufacturer, yearOfManufacture, wattage);
-        listMotorbike.add(motorbike);
+        Motorbike motorbike = new Motorbike(licensePlates,manufacturer,yearOfManufacture, owner, wattage);
+        return motorbike;
+    }
+    @Override
+    public void addMotorbike() {
+       Motorbike motorbike = infoMotorbike();
+        motorbikeList.add(motorbike);
         System.out.println("thêm mới thành công");
+
     }
 
     @Override
-    public void displayAll() {
-        for (Motorbike motorbike : listMotorbike) {
-            System.out.println(motorbike);
-        }
-    }
-
-    @Override
-    public void remove() {
-        System.out.println("mời bạn nhập biển kiểm soát để xóa: ");
-        String licensePlatesRemove = scanner.nextLine();
-        boolean isExist = false;
-        for (Motorbike motorbike : listMotorbike) {
-            if (licensePlatesRemove.equals(motorbike.getSeaOfControl())) {
-                System.out.println("bạn có chắc chắn xóa không? \n" +
-                        "1. có \n" +
-                        "2. Không");
-                int choose = Integer.parseInt(scanner.nextLine());
-                if (choose == 1) {
-                    listMotorbike.remove(motorbike);
+    public void removeMotorbike() {
+        System.out.println("nhập biển kiểm soát cần xóa");
+        int idRemove = Integer.parseInt(scanner.nextLine());
+        boolean isFlag = false;
+        for (Motorbike motorbike : motorbikeList){
+            if (motorbike.getLicensePlates() == idRemove){
+                System.out.println("bạn có chắn chắn muốn xóa??\n" +
+                        "1.có\n" +
+                        "2.không");
+                int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                if (chooseYesNo == 1){
+                    motorbikeList.remove(motorbike);
                     System.out.println("xóa thành công");
                 }
-                isExist = true;
-            }
-        }
-        if (!isExist) {
-            System.out.println("không tìm thấy");
-        }
-
-    }
-
-    @Override
-    public void find() {
-        System.out.println("Mời bạn nhập biển kiểm soát cần tìm: ");
-        String findControlTest = scanner.nextLine();
-        boolean isExist = false;
-
-        for (Motorbike motorbike : listMotorbike) {
-            if (findControlTest.equals(motorbike.getSeaOfControl())) {
-                System.out.println(motorbike);
-                isExist = true;
+                isFlag = true;
                 break;
             }
         }
-        if (!isExist) {
+        if (!isFlag){
             System.out.println("không tìm thấy");
         }
+
+
+    }
+
+    @Override
+    public void displayMotorbike() {
+        System.out.println("danh sách xe máy");
+        for (Motorbike motorbike:motorbikeList){
+            System.out.println(motorbike);
+        }
+
+    }
+
+    @Override
+    public void findMotorbike() {
+        System.out.println("nhập biển kiểm soát cần tìm");
+        int idFind = Integer.parseInt(scanner.nextLine());
+        for (Motorbike motorbike: motorbikeList) {
+            if (motorbike.getLicensePlates() == idFind) {
+                System.out.println("xe máy cần tìm: \n");
+                System.out.println(motorbike);
+
+            }else {
+                System.out.println("không tìm thấy");
+            }
+
+        }
+
     }
 }

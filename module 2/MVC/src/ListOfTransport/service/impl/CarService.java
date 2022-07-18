@@ -1,84 +1,92 @@
 package ListOfTransport.service.impl;
 
-public class CarService implements ICarService {
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final List<Car> listCar = new ArrayList<>();
+import ListOfTeachersAndStudents.model.Student;
+import ListOfTransport.model.Car;
+import ListOfTransport.service.ICarService;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class CarService<E> implements ICarService {
+    private static List<Car> carList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static Car infoCar(){
+        System.out.println("Nhập biển kiểm soát");
+        int  licensePlates = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập hãng sản xuất");
+        String manufacturer = scanner.nextLine();
+        System.out.println("Nhập năm sản xuất");
+        int yearOfManufacture = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập chử sở hữu");
+        String owner = scanner.nextLine();
+        System.out.println("nhập ghế ngồi");
+        int seat = Integer.parseInt(scanner.nextLine());
+        System.out.println("nhập kiểu xe");
+        String type = scanner.nextLine();
+
+        Car car = new Car( licensePlates, manufacturer,yearOfManufacture,owner, seat, type);
+        return car;
+    }
 
     @Override
-    public void add() {
-        System.out.print("Chủ sở hữu: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Nhập biển kiểm soát: ");
-        String seaOfControl = scanner.nextLine();
-
-        System.out.print("Nhập năm sản xuất: ");
-        int yearOfManufacture = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Nhập hãng sản xuất: ");
-        String manufacturer = scanner.nextLine();
-
-        System.out.print("Nhập Số lượng chỗ ngồi: ");
-        int numberOfSeats = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Nhập Kiểu xe: ");
-        String typeOfCar = scanner.nextLine();
-
-        Car car = new Car(name, seaOfControl, manufacturer, yearOfManufacture, numberOfSeats, typeOfCar);
-        listCar.add(car);
+    public void addCar() {
+        Car car =infoCar();
+        carList.add(car);
         System.out.println("thêm mới thành công");
 
     }
 
     @Override
-    public void displayAll() {
-        for (Car car : listCar) {
-            System.out.println(car);
-        }
-    }
-
-    @Override
-    public void remove() {
-        System.out.println("mời bạn nhập biển kiểm soát để xóa: ");
-        String licensePlatesRemove = scanner.nextLine();
-
-        boolean isExist = false;
-
-        for (Car car : listCar) {
-            if (licensePlatesRemove.equals(car.getSeaOfControl())) {
-                System.out.println("bạn có chắc chẵn xóa không \n" +
-                        "1. có \n" +
-                        "2. Không");
-                int choose = Integer.parseInt(scanner.nextLine());
-                if (choose == 1) {
-                    listCar.remove(car);
+    public void removeCar() {
+        System.out.println("nhập biển kiểm soát cần xóa");
+        int idRemove = Integer.parseInt(scanner.nextLine());
+        boolean isFlag = false;
+        for (Car car :carList){
+            if (car.getLicensePlates() == idRemove){
+                System.out.println("bạn có chắn chắn muốn xóa??\n" +
+                        "1.có\n" +
+                        "2.không");
+                int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                if (chooseYesNo == 1){
+                    carList.remove(car);
                     System.out.println("xóa thành công");
                 }
-                isExist = true;
-            }
-        }
-        if (!isExist) {
-            System.out.println("không tìm thấy");
-        }
-
-    }
-
-    @Override
-    public void find() {
-        System.out.println("Mời bạn nhập biển kiểm soát cần tìm: ");
-        String findControlTest = scanner.nextLine();
-        boolean isExist = false;
-
-        for (Car car : listCar) {
-            if (findControlTest.equals(car.getSeaOfControl())) {
-                System.out.println(car);
-                isExist = true;
+                isFlag = true;
                 break;
             }
         }
-        if (!isExist) {
+        if (!isFlag){
             System.out.println("không tìm thấy");
         }
+
+
     }
 
+    @Override
+    public void displayCar() {
+        System.out.println("danh sách xe ô tô");
+        for (Car car: carList){
+            System.out.println(car);
+        }
 
+    }
+
+    @Override
+    public void findCar() {
+        System.out.println("nhập biển kiểm soát cần tìm");
+        int idFind = Integer.parseInt(scanner.nextLine());
+        for (Car car : carList) {
+            if (car.getLicensePlates() == idFind) {
+                System.out.println("xe ô tô cần tìm: \n");
+                System.out.println(car);
+
+            }else {
+                System.out.println("không tìm thấy");
+            }
+
+        }
+
+    }
+}

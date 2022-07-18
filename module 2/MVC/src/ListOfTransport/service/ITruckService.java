@@ -1,5 +1,11 @@
 package ListOfTransport.service;
 
-public interface ITruckService extends IVehicle<Truck>{
+public interface ITruckService {
+    void addTruck();
 
+    void removeTruck();
+
+    void displayTruck();
+
+    void findTruck();
 }

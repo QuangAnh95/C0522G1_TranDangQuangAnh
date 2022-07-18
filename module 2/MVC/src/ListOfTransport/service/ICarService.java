@@ -1,7 +1,11 @@
 package ListOfTransport.service;
 
-import ListOfTransport.model.Car;
+public interface ICarService {
+    void addCar();
 
-public interface ICarService extends IVehicle<Car> {
+    void removeCar();
 
+    void displayCar();
+
+    void findCar();
 }

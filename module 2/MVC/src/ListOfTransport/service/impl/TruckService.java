@@ -1,5 +1,6 @@
 package ListOfTransport.service.impl;
 
+import ListOfTransport.model.Motorbike;
 import ListOfTransport.model.Truck;
 import ListOfTransport.service.ITruckService;
 
@@ -7,83 +8,84 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TruckService implements ITruckService {
-    private static final List<Truck> listTruck = new ArrayList<>();
-    private static final Scanner scanner = new Scanner(System.in);
+public class TruckService<E> implements ITruckService {
 
-    @Override
-    public void add() {
+    private static List<Truck> truckList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Chủ sở hữu: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Nhập biển kiểm soát: ");
-        String seaOfControl = scanner.nextLine();
-
-        System.out.print("Nhập hãng sản xuất: ");
+    public static Truck infoTruck(){
+        System.out.println("Nhập biển kiểm soát");
+        int  licensePlates = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập hãng sản xuất");
         String manufacturer = scanner.nextLine();
-
-        System.out.print("Nhập năm sản xuất: ");
+        System.out.println("Nhập năm sản xuất");
         int yearOfManufacture = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Nhập trọng tải (tấn): ");
+        System.out.println("Nhập chử sở hữu");
+        String owner = scanner.nextLine();
+        System.out.println("nhập trọng tải xe");
         int tonnage = Integer.parseInt(scanner.nextLine());
 
-        Truck truck = new Truck(name, seaOfControl, manufacturer, yearOfManufacture, tonnage);
-        listTruck.add(truck);
+        Truck truck = new Truck( licensePlates, manufacturer, yearOfManufacture, owner, tonnage);
+        return truck;
+    }
+    @Override
+    public void addTruck() {
+       Truck truck = infoTruck();
+        truckList.add(truck);
         System.out.println("thêm mới thành công");
 
     }
 
     @Override
-    public void displayAll() {
-        for (Truck truck : listTruck) {
-            System.out.println(truck);
-        }
-    }
-
-    @Override
-    public void remove() {
-        System.out.println("mời bạn nhập biển kiểm soát để xóa: ");
-        String licensePlatesRemove = scanner.nextLine();
-
-        boolean isExist = false;
-        for (Truck truck : listTruck) {
-            if (licensePlatesRemove.equals(truck.getSeaOfControl())) {
-                System.out.println("bạn có chắc chắn xóa không?\n" +
-                        "1. có \n" +
-                        "2. Không");
-                int choose = Integer.parseInt(scanner.nextLine());
-                if (choose == 1) {
-                    listTruck.remove(truck);
+    public void removeTruck() {
+        System.out.println("nhập biển kiểm soát cần xóa");
+        int idRemove = Integer.parseInt(scanner.nextLine());
+        boolean isFlag = false;
+        for (Truck truck : truckList){
+            if (truck.getLicensePlates() == idRemove){
+                System.out.println("bạn có chắn chắn muốn xóa??\n" +
+                        "1.có\n" +
+                        "2.không");
+                int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                if (chooseYesNo == 1){
+                    truckList.remove(truck);
                     System.out.println("xóa thành công");
                 }
-                isExist = true;
+                isFlag = true;
                 break;
             }
         }
-        if (!isExist) {
-            System.out.println("không tìm thấy ");
+        if (!isFlag){
+            System.out.println("không tìm thấy");
         }
+
 
     }
 
     @Override
-    public void find() {
-        System.out.println("Mời bạn nhập biển kiểm soát cần tìm: ");
-        String findControlTest = scanner.nextLine();
-        boolean isExist = false;
+    public void displayTruck() {
+        System.out.println("danh sách xe tải");
+        for (Truck truck: truckList){
+            System.out.println(truck);
+        }
 
-        for (Truck truck : listTruck) {
-            if (findControlTest.equals(truck.getSeaOfControl())) {
+
+    }
+
+    @Override
+    public void findTruck() {
+        System.out.println("nhập biển kiểm soát cần tìm");
+        int idFind = Integer.parseInt(scanner.nextLine());
+        for (Truck truck: truckList) {
+            if (truck.getLicensePlates() == idFind) {
+                System.out.println("xe tải cần tìm: \n");
                 System.out.println(truck);
-                isExist = true;
-                break;
+
+            }else {
+                System.out.println("không tìm thấy ");
             }
 
         }
-        if (!isExist) {
-            System.out.println("không tìm thấy");
-        }
+
     }
 }

@@ -1,27 +1,32 @@
 package ListOfTransport.model;
 
-public class Truck extends Vehicle {
-    private double tonnage;
+public class Truck extends Vehicle{
+    private int tonnage;
 
-    public Truck() {
+    public Truck(){
+
     }
 
-    public Truck(String name, String seaOfControl, String manufacturer, int yearOfManufacture, double tonnage) {
-        super(name, seaOfControl, manufacturer, yearOfManufacture);
+    public Truck(int tonnage) {
         this.tonnage = tonnage;
     }
 
-    public double getTonnage() {
+    public Truck(int licensePlates, String manufacturer, int yearOfManufacture, String owner, int tonnage) {
+        super(licensePlates, manufacturer, yearOfManufacture, owner);
+        this.tonnage = tonnage;
+    }
+
+    public int getTonnage() {
         return tonnage;
     }
 
-    public void setTonnage(double tonnage) {
+    public void setTonnage(int tonnage) {
         this.tonnage = tonnage;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Trọng tải: " + getTonnage() + " (tấn)";
-
+        return "xe tải : " +
+                "trọng tải" + tonnage + super.toString();
     }
 }

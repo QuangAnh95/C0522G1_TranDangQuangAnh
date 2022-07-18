@@ -1,29 +1,27 @@
 package ListOfTransport.model;
 
 public abstract class Vehicle {
-    private String name;
-    private String seaOfControl;
+    private int licensePlates;
     private String manufacturer;
     private int yearOfManufacture;
-
+    private String owner;
 
     public Vehicle() {
     }
 
-    public Vehicle(String name, String seaOfControl, String manufacturer, int yearOfManufacture) {
-        this.name = name;
-        this.seaOfControl = seaOfControl;
+    public Vehicle(int licensePlates, String manufacturer, int yearOfManufacture, String owner) {
+        this.licensePlates = licensePlates;
         this.manufacturer = manufacturer;
         this.yearOfManufacture = yearOfManufacture;
-
+        this.owner = owner;
     }
 
-    public String getSeaOfControl() {
-        return seaOfControl;
+    public int getLicensePlates() {
+        return licensePlates;
     }
 
-    public void setSeaOfControl(String seaOfControl) {
-        this.seaOfControl = seaOfControl;
+    public void setLicensePlates(int licensePlates) {
+        this.licensePlates = licensePlates;
     }
 
     public String getManufacturer() {
@@ -42,19 +40,22 @@ public abstract class Vehicle {
         this.yearOfManufacture = yearOfManufacture;
     }
 
-    public String getName() {
-        return name;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
+
 
     @Override
     public String toString() {
-        return "Chủ sở hữu: " + getName() +
-                ", Biển kiểm soát: " + getSeaOfControl() +
-                ", Nhà sản xuất: " + getManufacturer() +
-                ", Năm Sản xuất: " + getYearOfManufacture();
+        return
+                "biển kiểm soát: " + licensePlates +
+                ",hãng sản xuất: " + manufacturer + '\'' +
+                ", năm sản xuất: " + yearOfManufacture +
+                ", chủ sở hữu:  " + owner + '\'' +
+                '}';
     }
 }

@@ -1,38 +1,41 @@
 package ListOfTransport.model;
 
-public class Car extends Vehicle {
-    private int NumberOfSeats;
-    private String typeOfCar;
+public class Car extends Vehicle{
+    private int seat;
+    private String type;
 
-    public Car() {
+
+    public Car(int seat, String type) {
+        this.seat = seat;
+        this.type = type;
     }
 
-    public Car(String name, String seaOfControl, String manufacturer, int yearOfManufacture, int numberOfSeats, String typeOfCar) {
-        super(name, seaOfControl, manufacturer, yearOfManufacture);
-        NumberOfSeats = numberOfSeats;
-        this.typeOfCar = typeOfCar;
+    public Car(int licensePlates, String manufacturer, int yearOfManufacture, String owner, int seat, String type) {
+        super(licensePlates, manufacturer, yearOfManufacture, owner);
+        this.seat = seat;
+        this.type = type;
     }
 
-    public int getNumberOfSeats() {
-        return NumberOfSeats;
+    public int getSeat() {
+        return seat;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        NumberOfSeats = numberOfSeats;
+    public void setSeat(int seat) {
+        this.seat = seat;
     }
 
-    public String getTypeOfCar() {
-        return typeOfCar;
+    public String getType() {
+        return type;
     }
 
-    public void setTypeOfCar(String typeOfCar) {
-        this.typeOfCar = typeOfCar;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return super.toString() +
-                ", Số chỗ ngồi: " + getNumberOfSeats() +
-                ", Kiểu xe: " + getTypeOfCar();
+        return "xe ô tô" + "\n"+
+                "chỗ ngồi" + seat +
+                ", kiểu xe'" + type + super.toString();
     }
 }
