@@ -15,7 +15,7 @@ public class TeacherController {
             System.out.println("1.thêm giáo viên\n" +
                     "2.xóa giáo viên\n" +
                     "3.Xem danh sách giáo viên\n" +
-                    "4.Quay về menu chính.");
+                    "4.Quay về menu chính.\n");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:

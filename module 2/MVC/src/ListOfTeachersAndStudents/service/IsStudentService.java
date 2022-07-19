@@ -7,4 +7,7 @@ public interface IsStudentService {
 
     void removeStudent();
 
+    void searchName();
+
+    void findIdStudent();
 }

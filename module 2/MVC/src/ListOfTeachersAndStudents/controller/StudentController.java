@@ -14,7 +14,9 @@ public class StudentController {
             System.out.println("1.Thêm mới học sinh\n" +
                     "2.Xóa học sinh\n" +
                     "3.xem danh sách học sinh\n" +
-                    "4.Quay về menu chính.");
+                    "4.tìm kiếm học sinh theo id.\n" +
+                    "5.tìm kiếm học sinh theo tên\n" +
+                    "6.Quay về menu chính.\n");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
@@ -26,7 +28,12 @@ public class StudentController {
                 case 3:
                     isStudentService.displayAllStudent();
                     break;
-                case 4:
+                case 4:isStudentService.findIdStudent();
+                    break;
+                case 5:
+                    isStudentService.searchName();
+                    break;
+                case 6:
                     return;
 
             }

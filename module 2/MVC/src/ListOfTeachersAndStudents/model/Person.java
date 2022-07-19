@@ -52,11 +52,11 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", gender='" + gender + '\'' +
-                '}';
+        return
+                "  mã ID:  " + id +
+                ",  Tên:  " + name +
+                ",  Ngày sinh:  " + dateOfBirth +
+                ",  giới tính:  " + gender  ;
+
     }
 }

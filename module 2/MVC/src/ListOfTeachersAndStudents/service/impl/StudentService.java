@@ -16,7 +16,7 @@ public class StudentService<E> implements IsStudentService  {
     public void addStudent() {
         Student student = infoStudent();
         studentList.add(student);
-        System.out.println("thêm mới thành công!");
+        System.out.println("thêm mới thành công!\n");
 
 
     }
@@ -38,20 +38,53 @@ public class StudentService<E> implements IsStudentService  {
             if (student.getId() == idRemove){
                 System.out.println("bạn có chắn chắn muốn xóa??\n" +
                         "1.có\n" +
-                        "2.không");
+                        "2.không\n");
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
                 if (chooseYesNo == 1){
                     studentList.remove(student);
-                    System.out.println("xóa thành công");
+                    System.out.println("xóa thành công\n");
                 }
                 isFlag = true;
                 break;
             }
         }
         if (!isFlag){
-            System.out.println("không tìm thấy");
+            System.out.println("không tìm thấy\n");
         }
 
+    }
+
+    @Override
+    public void searchName() {
+        System.out.println("nhập tên cần tìm");
+        String name = scanner.nextLine();
+        boolean isFlag = false;
+        for (Student student : studentList){
+            if (student.getName().contains(name)){
+                System.out.println(student + "\n");
+                isFlag = true;
+            }
+        }
+        if (!isFlag){
+            System.out.println("không tìm thấy\n");
+        }
+    }
+
+    @Override
+    public void findIdStudent() {
+        System.out.println("nhập ID cần tìm");
+        int idFind = Integer.parseInt(scanner.nextLine());
+        boolean isFlag = false;
+        for (Student student : studentList){
+            if (student.getId()== idFind){
+                System.out.println(student+ "\n");
+            }
+            isFlag = true;
+            break;
+        }
+        if (!isFlag){
+            System.out.println("Không tìm thấy \n");
+        }
     }
 
     public static Student infoStudent(){
