@@ -87,6 +87,16 @@ public class StudentService<E> implements IsStudentService  {
         }
     }
 
+    @Override
+    public void sortStudent() {
+        boolean isSwap = true;
+        for (int i = 0; i< studentList.size()-1 && isSwap ;i++){
+           if (studentList.get(j).getName())
+        }
+
+        }
+
+
     public static Student infoStudent(){
         System.out.print("Nhập id: ");
         int id = Integer.parseInt(scanner.nextLine());

@@ -12,10 +12,12 @@ public class TeacherController {
 
     public void menuTeacher(){
         do {
-            System.out.println("1.thêm giáo viên\n" +
-                    "2.xóa giáo viên\n" +
-                    "3.Xem danh sách giáo viên\n" +
-                    "4.Quay về menu chính.\n");
+            System.out.println("1.thêm giảng viên\n" +
+                    "2.xóa giảng viên\n" +
+                    "3.Xem danh sách giảng viên\n" +
+                    "4.tìm kiếm giảng viên\n" +
+                    "5.sắp xếp danh sách giảng viên theo tên" +
+                    "6.Quay về menu chính");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
@@ -28,6 +30,10 @@ public class TeacherController {
                     iTeacherService.displayAllTeacher();
                     break;
                 case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
                     return;
             }
         }while (true);

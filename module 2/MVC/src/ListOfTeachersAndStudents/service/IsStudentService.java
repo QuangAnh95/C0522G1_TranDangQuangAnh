@@ -10,4 +10,6 @@ public interface IsStudentService {
     void searchName();
 
     void findIdStudent();
+
+    void sortStudent();
 }

@@ -32,7 +32,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "  thông tin học sinh:  " + super.toString()+
+        return "  thông tin học viên:  " + super.toString()+
                 "  điểm số:  " + point +
                 "  lớp:  " + classes ;
 

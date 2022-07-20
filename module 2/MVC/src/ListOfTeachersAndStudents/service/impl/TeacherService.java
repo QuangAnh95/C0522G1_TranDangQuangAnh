@@ -1,5 +1,6 @@
 package ListOfTeachersAndStudents.service.impl;
 
+import ListOfTeachersAndStudents.model.Student;
 import ListOfTeachersAndStudents.model.Teacher;
 import ListOfTeachersAndStudents.service.ITeacherService;
 
@@ -52,6 +53,40 @@ public class TeacherService<E> implements ITeacherService {
         }
 
     }
+
+    @Override
+    public void findIdTeacher() {
+        System.out.println("nhập ID cần tìm");
+        int idFind = Integer.parseInt(scanner.nextLine());
+        boolean isFlag = false;
+        for (Teacher teacher : teacherList){
+            if (teacher.getId()== idFind){
+                System.out.println(teacher+ "\n");
+            }
+            isFlag = true;
+            break;
+        }
+        if (!isFlag){
+            System.out.println("Không tìm thấy \n");
+        }
+    }
+
+    @Override
+    public void findNameTeacher() {
+        System.out.println("nhập tên cần tìm");
+        String name = scanner.nextLine();
+        boolean isFlag = false;
+        for (Teacher teacher : teacherList){
+            if (teacher.getName().contains(name)){
+                System.out.println(teacher + "\n");
+                isFlag = true;
+            }
+        }
+        if (!isFlag){
+            System.out.println("không tìm thấy\n");
+        }
+    }
+
     public static Teacher infoTeacher(){
         System.out.print("Nhập id: ");
         int id = Integer.parseInt(scanner.nextLine());
