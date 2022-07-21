@@ -6,6 +6,6 @@ import ss14_exception_handling_and_debug.exersise.ExceptionTriangle.model.Triang
 public interface ITriangleService  {
 
 
-    Triangle checkTrilangle(int a, int b, int c) throws IllegalTriangleException;
+    Triangle checkTrilangle(int edgeA, int edgeB, int edgeC) throws IllegalTriangleException;
 
 }

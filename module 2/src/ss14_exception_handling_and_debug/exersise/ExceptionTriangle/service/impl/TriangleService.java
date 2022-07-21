@@ -11,18 +11,18 @@ public class TriangleService implements ITriangleService {
 
 
     @Override
-    public Triangle checkTrilangle(int a, int b, int c) throws IllegalTriangleException {
-        if (a < 0 || b < 0 || c < 0) {
+    public Triangle checkTrilangle(int edgeA, int edgeB, int edgeC) throws IllegalTriangleException {
+        if (edgeA < 0 || edgeB < 0 || edgeC < 0) {
             throw new IllegalTriangleException("Không được nhập số âm");
         }
-        if (!(a > 0 && b > 0 && c > 0
-                && a + b > c
-                && a + c > b
-                && b + c > a)) {
+        if (!(edgeA > 0 && edgeB > 0 && edgeC > 0
+                && edgeA + edgeB > edgeC
+                && edgeA + edgeC > edgeB
+                && edgeB + edgeC > edgeA)) {
             throw new IllegalTriangleException("Không là ba cạnh của tam giác");
         }
 
-        return new Triangle(a, b, c);
+        return new Triangle(edgeA, edgeB, edgeC);
     }
 
 

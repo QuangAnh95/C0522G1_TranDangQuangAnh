@@ -12,16 +12,16 @@ public class MainController {
 
         while (true) {
             try {
-                System.out.print("Nhập cạnh a: ");
-                int a = Integer.parseInt(sc.nextLine());
+                System.out.print("Nhập cạnh thứ nhất: ");
+                int edgeA = Integer.parseInt(sc.nextLine());
 
-                System.out.print("Nhập cạnh b: ");
-                int b = Integer.parseInt(sc.nextLine());
+                System.out.print("Nhập cạnh thứ 2: ");
+                int edgeB = Integer.parseInt(sc.nextLine());
 
-                System.out.print("Nhập cạnh c: ");
-                int c = Integer.parseInt(sc.nextLine());
+                System.out.print("Nhập cạnh thứ 3: ");
+                int edgeC = Integer.parseInt(sc.nextLine());
 
-                System.out.println(triangle.checkTrilangle(a, b, c));
+                System.out.println(triangle.checkTrilangle(edgeA,edgeB,edgeC));
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Không được nhập chữ, mời nhập lại !");
