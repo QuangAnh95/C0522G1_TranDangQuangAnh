@@ -12,34 +12,41 @@ public class StudentController {
     private StudentFindcontroller studentFindcontroller = new StudentFindcontroller();
 
 
-    public void menuStudent(){
+    public void menuStudent() {
         do {
             System.out.println("1.Thêm mới sinh viên\n" +
                     "2.Xóa học viên\n" +
                     "3.xem danh sách học viên\n" +
                     "4.tìm kiếm học viên \n" +
-                    "5.sắp xếp danh sách theo tên" +
+                    "5.sắp xếp danh sách theo tên\n" +
                     "6.Quay về menu chính.\n");
             int choose = Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            switch (choose) {
                 case 1:
                     isStudentService.addStudent();
+                    isStudentService.displayAllStudent();
                     break;
-                case 2 :
+                case 2:
                     isStudentService.removeStudent();
+                    isStudentService.displayAllStudent();
                     break;
                 case 3:
                     isStudentService.displayAllStudent();
                     break;
-                case 4:studentFindcontroller.menuFindStudent();
+                case 4:
+                    studentFindcontroller.menuFindStudent();
+                    isStudentService.displayAllStudent();
                     break;
-                case 5:isStudentService.sortStudent();
+                case 5:
+                    isStudentService.sortStudent();
+                    isStudentService.displayAllStudent();
+
                     break;
                 case 6:
                     return;
 
             }
-        }while (true);
+        } while (true);
     }
 
 }

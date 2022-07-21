@@ -13,8 +13,8 @@ public class MainController {
                     "--bạn muốn gì??--\n" +
                     "1.Quản lý học viên\n" +
                     "2.Quản lý giảng viên\n" +
-                    "3.thoát");
-            System.out.println("Vui lòng đưa ra lựa chọn");
+                    "3.thoát\n");
+            System.out.println("Vui lòng đưa ra lựa chọn\n");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:{
