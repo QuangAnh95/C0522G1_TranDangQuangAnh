@@ -1,8 +1,11 @@
 package ListOfTeachersAndStudents.service.impl;
 
+import ListOfTeachersAndStudents.Exception.DuplicateIDException;
 import ListOfTeachersAndStudents.model.Student;
 import ListOfTeachersAndStudents.model.Teacher;
 import ListOfTeachersAndStudents.service.ITeacherService;
+import ListOfTeachersAndStudents.utils.ReadTeacherFile;
+import ListOfTeachersAndStudents.utils.WriteTeacherFile;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TeacherService<E> implements ITeacherService {
+    public static final String PATH_TEACHER = "ListOfTeachersAndStudents/data/TeacherList.csv";
     private static List<Teacher> teacherList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -22,17 +26,28 @@ public class TeacherService<E> implements ITeacherService {
 
 
     }
+    public void writeFile(){
+        WriteTeacherFile.writeTeacherFile(PATH_TEACHER,teacherList);
+    }
+    public void readFile(){
+        List<Teacher> list = ReadTeacherFile.readTeacherFile(PATH_TEACHER);
+        teacherList.clear();
+        teacherList.addAll(list);
+    }
 
     @Override
     public void addTeacher() {
+        readFile();
         Teacher teacher = infoTeacher();
         teacherList.add(teacher);
         System.out.println("thêm mới thành công");
+        writeFile();
 
     }
 
     @Override
     public void displayAllTeacher() {
+        readFile();
         for (Teacher teacher:teacherList){
             System.out.println(teacher);
         }
@@ -41,8 +56,17 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void removeTeacher() {
-        System.out.println("mời bạn nhập id giáo viên cần xóa!");
-        int idRemove = Integer.parseInt(scanner.nextLine());
+        readFile();
+        int idRemove;
+       while (true){
+           try {
+               System.out.println("mời bạn nhập id giáo viên cần xóa!");
+               idRemove = Integer.parseInt(scanner.nextLine());
+               break;
+           }catch (NumberFormatException e){
+               System.out.println("bạn nhập sai cú pháp,vui lòng nhập số");
+           }
+       }
         boolean isFlag = false;
         for (Teacher teacher : teacherList){
             if (teacher.getId() == idRemove){
@@ -59,7 +83,9 @@ public class TeacherService<E> implements ITeacherService {
             }
 
 
-        }if (!isFlag){
+        }
+        writeFile();
+        if (!isFlag){
             System.out.println("không tìm thấy");
         }
 
@@ -67,8 +93,25 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void findIdTeacher() {
-        System.out.println("nhập ID cần tìm");
-        int idFind = Integer.parseInt(scanner.nextLine());
+        readFile();
+        int idFind;
+      while (true){
+          try {
+              System.out.println("nhập ID cần tìm");
+              idFind = Integer.parseInt(scanner.nextLine());
+              for (Teacher teacher: teacherList){
+                  if (teacher.getId()==idFind){
+                      throw new DuplicateIDException("Trùng id,vui lòng nhập lại");
+
+                  }
+              }
+              break;
+          }catch (NumberFormatException e){
+              System.out.println("vui lòng nhập số!");
+          }catch (DuplicateIDException e){
+              System.out.println(e.getMessage());
+          }
+      }
         boolean isFlag = false;
         for (Teacher teacher : teacherList){
             if (teacher.getId()== idFind){
@@ -85,6 +128,7 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void findNameTeacher() {
+        readFile();
         System.out.println("nhập tên cần tìm");
         String name = scanner.nextLine();
         boolean isFlag = false;
@@ -101,6 +145,7 @@ public class TeacherService<E> implements ITeacherService {
 
     @Override
     public void sortTeacher() {
+        readFile();
         boolean isSwap = true;
 
         for (int i = 0;i<teacherList.size();i++){
@@ -116,6 +161,8 @@ public class TeacherService<E> implements ITeacherService {
                 }
             }
         }
+        writeFile();
+        displayAllTeacher();
     }
 
     public static Teacher infoTeacher(){

@@ -2,6 +2,9 @@ package ListOfTeachersAndStudents.service.impl;
 
 import ListOfTeachersAndStudents.model.Student;
 import ListOfTeachersAndStudents.service.IsStudentService;
+import ListOfTeachersAndStudents.utils.ReadStudentFile;
+import ListOfTeachersAndStudents.utils.ReadTeacherFile;
+import ListOfTeachersAndStudents.utils.WriteStudentFile;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +14,7 @@ import java.util.Scanner;
 public class StudentService<E> implements IsStudentService {
     private static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    public static final String PATH_STUDENT = "ListOfTeachersAndStudents/data/Studenlist.csv";
 
     static {
         studentList.add(new Student(4,"Nguyễn khoa", "1/6/1997", "nam", "C09", 7));
@@ -22,19 +26,30 @@ public class StudentService<E> implements IsStudentService {
         studentList.add(new Student(5,"KIên Trần", "1/6/1997", "nam", "C07", 2));
 
     }
+    public void writefile(){
+        WriteStudentFile.writeStudentFile(PATH_STUDENT,studentList);
+    }
+    public void readFile(){
+        List<Student> list = ReadStudentFile.readStudentFile(PATH_STUDENT);
+        studentList.clear();
+        studentList.addAll(list);
+    }
 
 
     @Override
     public void addStudent() {
+        readFile();
         Student student = infoStudent();
         studentList.add(student);
         System.out.println("thêm mới thành công!\n");
+        writefile();
 
 
     }
 
     @Override
     public void displayAllStudent() {
+        readFile();
         for (Student student : studentList) {
             System.out.println(student);
         }
@@ -43,8 +58,18 @@ public class StudentService<E> implements IsStudentService {
 
     @Override
     public void removeStudent() {
-        System.out.println("nhập id cần xóa");
-        int idRemove = Integer.parseInt(scanner.nextLine());
+        readFile();
+        int idRemove;
+
+        while (true){
+            try {
+                System.out.println("nhập id cần xóa");
+                idRemove = Integer.parseInt(scanner.nextLine());
+                break;
+            }catch (NumberFormatException e){
+                System.out.println("Bạn nhập sai cú pháp,vui lòng nhập lại số");
+            }
+        }
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getId() == idRemove) {
@@ -55,6 +80,7 @@ public class StudentService<E> implements IsStudentService {
                 if (chooseYesNo == 1) {
                     studentList.remove(student);
                     System.out.println("xóa thành công\n");
+                    writefile();
                 }
                 isFlag = true;
                 break;
@@ -68,6 +94,7 @@ public class StudentService<E> implements IsStudentService {
 
     @Override
     public void searchName() {
+        readFile();
         System.out.println("nhập tên cần tìm");
         String name = scanner.nextLine();
         boolean isFlag = false;
@@ -84,8 +111,17 @@ public class StudentService<E> implements IsStudentService {
 
     @Override
     public void findIdStudent() {
-        System.out.println("nhập ID cần tìm");
-        int idFind = Integer.parseInt(scanner.nextLine());
+        readFile();
+        int idFind;
+       while (true){
+           try {
+               System.out.println("nhập ID cần tìm");
+               idFind = Integer.parseInt(scanner.nextLine());
+              break;
+           }catch (NumberFormatException e){
+               System.out.println("bạn nhập sai cú pháp,vui lòng nhập lại số");
+           }
+       }
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getId() == idFind) {
@@ -102,6 +138,7 @@ public class StudentService<E> implements IsStudentService {
 
     @Override
     public void sortStudent() {
+        readFile();
         boolean isSwap = true;
         for (int i = 0; i < studentList.size() - 1 && isSwap; i++) {
             isSwap = false;
@@ -119,7 +156,8 @@ public class StudentService<E> implements IsStudentService {
 
             }
         }
-
+        writefile();
+        displayAllStudent();
     }
 
 

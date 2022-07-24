@@ -1,4 +1,4 @@
-package ListOfTeachersAndStudents.controller;
+package ListOfTeachersAndStudents.controller.PersonController;
 
 import ListOfTeachersAndStudents.controller.PersonFindController.TeacherFindController;
 import ListOfTeachersAndStudents.service.ITeacherService;
@@ -13,6 +13,7 @@ public class TeacherController {
     private TeacherFindController teacherFindController = new TeacherFindController();
 
     public void menuTeacher() {
+        int choose;
         do {
             System.out.println("1.thêm giảng viên\n" +
                     "2.xóa giảng viên\n" +
@@ -20,7 +21,15 @@ public class TeacherController {
                     "4.tìm kiếm giảng viên\n" +
                     "5.sắp xếp danh sách giảng viên theo tên\n" +
                     "6.Quay về menu chính\n");
-            int choose = Integer.parseInt(scanner.nextLine());
+            while (true){
+                try {
+                    System.out.println("mời bạn nhập lựa chọn\n");
+                    choose = Integer.parseInt(scanner.nextLine());
+                    break;
+                }catch (NumberFormatException e){
+                    System.out.println("bạn nhập sai cú pháp,vui lòng nhập số\n");
+                }
+            }
             switch (choose) {
                 case 1:
                     iTeacherService.addTeacher();
