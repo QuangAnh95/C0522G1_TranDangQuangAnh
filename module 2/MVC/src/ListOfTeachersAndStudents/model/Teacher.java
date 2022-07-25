@@ -25,7 +25,9 @@ public class Teacher extends Person {
         return "  Thông tin giảng viên:  " +super.toString() +
                 "   chuyên môn:  " + specialize ;
     }
-    public String getInfo(){
+
+    @Override
+    public String getinfo() {
         return String.format("%s,%s,%s,%s,%s,\n",this.getId(),this.getName(),this.getDateOfBirth(),this.getGender(),this.getSpecialize());
     }
 }

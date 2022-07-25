@@ -49,6 +49,7 @@ public abstract class Person {
     public void setGender(String gender) {
         this.gender = gender;
     }
+    public abstract String getinfo();
 
     @Override
     public String toString() {

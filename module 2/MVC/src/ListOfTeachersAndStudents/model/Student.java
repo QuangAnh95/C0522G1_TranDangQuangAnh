@@ -37,8 +37,11 @@ public class Student extends Person {
                 "  lớp:  " + classes ;
 
     }
-    public String getInfo(){
-        return String.format("%s,%s,%s,%s,%s,%s,\n", this.getId(),this.getName(),this.getClasses(),this.getDateOfBirth(),this.getGender(),this.getPoint());
-    }
 
+    @Override
+    public String getinfo() {
+            return String.format("%s,%s,%s,%s,%s,%s,\n", this.getId(),this.getName(),this.getDateOfBirth(),this.getGender(),this.getClasses(),this.getPoint());
+    }
 }
+
+
