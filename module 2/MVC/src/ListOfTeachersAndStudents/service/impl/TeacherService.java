@@ -1,7 +1,6 @@
 package ListOfTeachersAndStudents.service.impl;
 
 import ListOfTeachersAndStudents.Exception.DuplicateIDException;
-import ListOfTeachersAndStudents.model.Student;
 import ListOfTeachersAndStudents.model.Teacher;
 import ListOfTeachersAndStudents.service.ITeacherService;
 import ListOfTeachersAndStudents.utils.ReadTeacherFile;

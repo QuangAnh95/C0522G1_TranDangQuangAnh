@@ -24,7 +24,7 @@ public class WriteTeacherFile {
     public static void writeTeacherFile(String path, List<Teacher> teachers) {
         StringBuilder data = new StringBuilder();
         for (Teacher Teacher : teachers) {
-            data.append(Teacher.getInfo());
+            data.append(Teacher.getinfo());
         }
 
         writeFile(path, data.toString());

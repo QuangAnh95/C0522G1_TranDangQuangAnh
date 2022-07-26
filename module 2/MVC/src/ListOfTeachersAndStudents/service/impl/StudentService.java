@@ -10,11 +10,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StudentService<E> implements IsStudentService {
     private static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     public static final String PATH_STUDENT = "ListOfTeachersAndStudents/data/Studenlist.csv";
+    public static final  String CLASS_REGEX = "[0-9]{2}[/][0-9]{2}[/][0-9]{4}";
 
     static {
         studentList.add(new Student(4,"Nguyễn khoa", "1/6/1997", "nam", "C09", 7));
@@ -34,6 +37,40 @@ public class StudentService<E> implements IsStudentService {
         studentList.clear();
         studentList.addAll(list);
     }
+
+
+    public static Student infoStudent() {
+        System.out.print("Nhập id: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Nhập name: ");
+        String name = scanner.nextLine();
+        String dateOfBirth;
+        do {
+            String CLASS_REGEX = "[0-9]{2}[/][0-9]{2}[/][0-9]{4}";
+            System.out.print("Nhập ngày sinh: ");
+            dateOfBirth = scanner.nextLine();
+            if (dateOfBirth.matches(CLASS_REGEX)) {
+                break;
+            } else {
+                System.out.println("bạn phải nhập theo dạng: dd/mm/yyyy \n");
+            }
+
+        } while (true);
+
+        System.out.println("Nhập giới tính");
+        String gender = scanner.nextLine();
+        System.out.print("Nhập lớp ");
+        String classes = scanner.nextLine();
+        System.out.print("Nhập điểm: ");
+        int point = Integer.parseInt(scanner.nextLine());
+
+        Student student = new Student(id, name, dateOfBirth, gender, classes, point);
+        return student;
+
+
+    }
+
+
 
 
     @Override
@@ -161,23 +198,5 @@ public class StudentService<E> implements IsStudentService {
     }
 
 
-    public static Student infoStudent() {
-        System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập name: ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập ngày sinh: ");
-        String dateOfBirth = scanner.nextLine();
-        System.out.println("Nhập giới tính");
-        String gender = scanner.nextLine();
-        System.out.print("Nhập lớp ");
-        String classes = scanner.nextLine();
-        System.out.print("Nhập điểm: ");
-        int point = Integer.parseInt(scanner.nextLine());
 
-        Student student = new Student(id, name, dateOfBirth, gender, classes, point);
-        return student;
-
-
-    }
 }

@@ -24,7 +24,7 @@ public class WriteStudentFile {
     public static void writeStudentFile(String path, List<Student> students) {
         StringBuilder data = new StringBuilder();
         for (Student student : students) {
-            data.append(student.getInfo());
+            data.append(student.getinfo());
         }
 
         writeFile(path, data.toString());
