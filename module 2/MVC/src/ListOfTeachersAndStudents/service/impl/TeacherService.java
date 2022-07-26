@@ -169,8 +169,18 @@ public class TeacherService<E> implements ITeacherService {
         int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập name: ");
         String name = scanner.nextLine();
-        System.out.print("Nhập ngày sinh: ");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth;
+        do {
+            String CLASS_REGEX = "[0-9]{2}[/][0-9]{2}[/][0-9]{4}";
+            System.out.print("Nhập ngày sinh: ");
+            dateOfBirth = scanner.nextLine();
+            if (dateOfBirth.matches(CLASS_REGEX)) {
+                break;
+            } else {
+                System.out.println("bạn phải nhập theo dạng: dd/mm/yyyy \n");
+            }
+
+        } while (true)
         System.out.println("nhập giới tính");
         String gender = scanner.nextLine();
         System.out.println("nhập chuyên môn");
