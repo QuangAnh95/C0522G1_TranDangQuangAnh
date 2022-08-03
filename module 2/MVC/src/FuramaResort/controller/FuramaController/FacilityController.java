@@ -1,9 +1,15 @@
 package FuramaResort.controller.FuramaController;
 
+import FuramaResort.service.IFacilityService;
+import FuramaResort.service.impl.FacilityService;
+
 import java.util.Scanner;
 
 public class FacilityController {
+    private IFacilityService iFacilityService=new FacilityService<>();
     public void facilityMenu(){
+        IFacilityService iFacilityService = new FacilityService<>();
+
         Scanner scanner = new Scanner(System.in);
         int chosse;
         do {
@@ -26,11 +32,11 @@ public class FacilityController {
                 }
             }
             switch (chosse) {
-                case 1:
+                case 1: iFacilityService.displayFacility();
                     break;
-                case 2:
+                case 2: iFacilityService.addFacility();
                     break;
-                case 3:
+                case 3: iFacilityService.displayFacilityMaitenance();
                     break;
                 case 4:
                     return;

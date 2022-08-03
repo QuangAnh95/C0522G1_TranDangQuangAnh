@@ -180,7 +180,7 @@ public class TeacherService<E> implements ITeacherService {
                 System.out.println("bạn phải nhập theo dạng: dd/mm/yyyy \n");
             }
 
-        } while (true)
+        } while (true);
         System.out.println("nhập giới tính");
         String gender = scanner.nextLine();
         System.out.println("nhập chuyên môn");
